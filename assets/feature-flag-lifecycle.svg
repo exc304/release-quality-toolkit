@@ -90,9 +90,6 @@
   <path class="ink" d="M1060 212 C1098 212 1094 288 1134 288"/>
   <polygon class="arrow" points="1134,288 1120,279 1121,297"/>
 
-  <text x="1088" y="188" class="tiny">watch</text>
-  <text x="1088" y="315" class="tiny">rollback</text>
-
   <g filter="url(#shadow)">
     <rect x="120" y="370" width="1080" height="66" class="note" rx="8"/>
     <text x="660" y="410" class="small" style="font-size:20px" text-anchor="middle">A feature flag is not done when it ships. It is done when the team knows what to do next.</text>
