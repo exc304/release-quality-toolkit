@@ -1,0 +1,162 @@
+# Generalized test suite configuration example.
+# Adapt names, workflows, feature flags, paths, and thresholds for your own system.
+
+project:
+  name: "Example Release Candidate"
+  environment: "staging-rc"
+  platform: "example-platform"
+
+test_suites:
+  core_workflow:
+    description: "Primary user workflow scenarios"
+    status: "active"
+    risk_level: "high"
+    features:
+      - name: "Create and complete core transaction"
+        id: "CORE-0010"
+        file: "features/core/create-and-complete.feature"
+        scenarios:
+          - "Create transaction with valid data"
+          - "Complete transaction with required approvals"
+          - "Handle quantity or value variance"
+        data_source: "data/core-workflow.csv"
+        tags: ["core", "release-critical"]
+
+      - name: "Reverse completed transaction"
+        id: "CORE-0020"
+        file: "features/core/reverse-transaction.feature"
+        scenarios:
+          - "Reverse single transaction"
+          - "Reverse transaction with dependent records"
+        data_source: "data/core-workflow.csv"
+        requires_flag: "reverse-transaction=true"
+        tags: ["core", "feature-flagged"]
+
+  secondary_workflow:
+    description: "Secondary workflow scenarios that depend on core stability"
+    status: "active"
+    risk_level: "medium"
+    depends_on: "core_workflow"
+    requires_flag: "secondary-workflow=true"
+    features:
+      - name: "Secondary workflow happy path"
+        id: "SEC-1010"
+        file: "features/secondary/happy-path.feature"
+        scenarios:
+          - "Run secondary workflow after core transaction"
+          - "Verify secondary workflow audit trail"
+        data_source: "data/secondary-workflow.csv"
+        tags: ["secondary"]
+
+  admin_workflow:
+    description: "Configuration and administration scenarios"
+    status: "active"
+    risk_level: "medium"
+    features:
+      - name: "Update release configuration"
+        id: "ADMIN-2010"
+        file: "features/admin/update-config.feature"
+        scenarios:
+          - "Enable feature flag"
+          - "Disable feature flag"
+          - "Verify disabled behavior degrades gracefully"
+        data_source: "data/admin-config.csv"
+        tags: ["admin", "feature-flags"]
+
+  integration_workflow:
+    description: "External integration scenarios"
+    status: "inactive"
+    risk_level: "high"
+    notes: "Out of scope until partner test environment is available."
+    features:
+      - name: "External partner sync"
+        id: "INT-3010"
+        file: "features/integrations/partner-sync.feature"
+        scenarios:
+          - "Send record to external partner"
+          - "Receive partner acknowledgement"
+        data_source: "data/integration-workflow.csv"
+        requires_flag: "partner-sync=true"
+        tags: ["integration", "external-dependency"]
+
+data:
+  sources:
+    core-workflow.csv:
+      path: "data/core-workflow.csv"
+      required_columns:
+        - transaction_id
+        - item_number
+        - quantity
+        - user_role
+      notes: "Used by primary release-critical scenarios."
+
+    secondary-workflow.csv:
+      path: "data/secondary-workflow.csv"
+      required_columns:
+        - transaction_id
+        - secondary_action
+        - expected_status
+      notes: "Requires a completed core transaction."
+
+    admin-config.csv:
+      path: "data/admin-config.csv"
+      required_columns:
+        - flag_name
+        - initial_state
+        - target_state
+      notes: "Used for feature flag enablement and disablement checks."
+
+    integration-workflow.csv:
+      path: "data/integration-workflow.csv"
+      required_columns:
+        - partner_id
+        - payload_type
+        - expected_response
+      notes: "Inactive until external environment is available."
+
+execution:
+  environment: "staging-rc"
+  browser: "Chrome"
+  headless: false
+  timeout_seconds: 300
+  parallel_sessions: 4
+  retry_failed: true
+  retry_count: 1
+
+  workflow_sequence:
+    - name: "core_workflow"
+      required_pass_rate: 100
+      gates: ["secondary_workflow", "integration_workflow"]
+
+    - name: "secondary_workflow"
+      required_pass_rate: 95
+      depends_on: "core_workflow"
+
+    - name: "admin_workflow"
+      required_pass_rate: 95
+
+    - name: "integration_workflow"
+      required_pass_rate: 90
+      depends_on: ["core_workflow", "external_partner_environment"]
+
+reporting:
+  format: "json"
+  include_screenshots: true
+  include_logs: true
+  output_path: "reports/rc-test-results.json"
+  summary:
+    notify_on_failure: true
+    notify_on_completion: true
+
+feature_flags:
+  reverse-transaction: true
+  secondary-workflow: true
+  partner-sync: false
+  beta-ui: false
+
+notes: |
+  Primary goal: validate core release workflows before production.
+  Critical scenarios: CORE-0010, CORE-0020.
+  Data refresh required before release gate.
+  Watch for hidden dependencies between feature flags and environment configuration.
+
