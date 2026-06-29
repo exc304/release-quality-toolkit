@@ -58,25 +58,24 @@
     <polygon class="arrow" points="816,192 804,184 804,200"/>
   </g>
 
-  <g transform="translate(1040 84)">
-    <rect class="ship" x="0" y="0" width="118" height="70" rx="12"/>
-    <text class="outcomeText" x="59" y="43" text-anchor="middle">Ship</text>
-    <rect class="flag" x="0" y="98" width="118" height="70" rx="12"/>
-    <text class="outcomeText" x="59" y="141" text-anchor="middle">Flag</text>
-    <rect class="defer" x="0" y="196" width="118" height="70" rx="12"/>
-    <text class="outcomeText" x="59" y="239" text-anchor="middle">Defer</text>
+  <g transform="translate(1040 108)">
+    <rect class="ship" x="0" y="0" width="118" height="60" rx="12"/>
+    <text class="outcomeText" x="59" y="37" text-anchor="middle">Ship</text>
+    <rect class="flag" x="0" y="80" width="118" height="60" rx="12"/>
+    <text class="outcomeText" x="59" y="117" text-anchor="middle">Flag</text>
+    <rect class="defer" x="0" y="160" width="118" height="60" rx="12"/>
+    <text class="outcomeText" x="59" y="197" text-anchor="middle">Defer</text>
   </g>
 
-  <path class="line" d="M994 192 C1012 192 1019 119 1034 119"/>
-  <polygon class="arrow" points="1034,119 1022,111 1022,127"/>
-  <path class="line" d="M994 192 H1034"/>
-  <polygon class="arrow" points="1034,192 1022,184 1022,200"/>
-  <path class="line" d="M994 192 C1012 192 1019 265 1034 265"/>
-  <polygon class="arrow" points="1034,265 1022,257 1022,273"/>
+  <path class="line" d="M994 192 C1012 192 1019 138 1034 138"/>
+  <polygon class="arrow" points="1034,138 1022,130 1022,146"/>
+  <path class="line" d="M994 192 C1012 192 1019 218 1034 218"/>
+  <polygon class="arrow" points="1034,218 1022,210 1022,226"/>
+  <path class="line" d="M994 192 C1012 192 1019 298 1034 298"/>
+  <polygon class="arrow" points="1034,298 1022,290 1022,306"/>
 
-  <g transform="translate(60 310)">
+  <g transform="translate(60 342)">
     <rect x="0" y="0" width="1080" height="58" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-    <text x="540" y="36" text-anchor="middle" class="small" style="font-size:18px; fill:#075985">The question is not \"is it green?\" The question is \"what evidence supports the decision?\"</text>
+    <text x="540" y="36" text-anchor="middle" class="small" style="font-size:18px; fill:#075985">Release confidence asks: is it green, and what evidence supports the decision?</text>
   </g>
 </svg>
-
