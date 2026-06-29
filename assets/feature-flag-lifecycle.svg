@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
   <title id="title">Feature flag lifecycle</title>
   <desc id="desc">A lifecycle diagram showing a feature flag moving from proposed to scoped, tested, enabled, monitored, and then disabled or graduated.</desc>
   <defs>
@@ -15,7 +15,7 @@
       .arrow { fill: #64748b; }
     </style>
   </defs>
-  <rect class="bg" width="1200" height="420" rx="24"/>
+  <rect class="bg" width="1280" height="420" rx="24"/>
   <text x="60" y="58" class="title">Feature Flag Lifecycle</text>
   <text x="60" y="88" class="small">Flags reduce release risk when ownership, test coverage, defaults, and disablement paths are explicit.</text>
 
@@ -44,12 +44,12 @@
     <text class="label" x="75" y="39" text-anchor="middle">Monitored</text>
     <text class="small" x="75" y="66" text-anchor="middle">watch signals</text>
   </g>
-  <g transform="translate(982 110)">
+  <g transform="translate(1070 110)">
     <rect class="done" width="150" height="80" rx="14"/>
     <text class="label" x="75" y="34" text-anchor="middle">Graduated</text>
     <text class="small" x="75" y="59" text-anchor="middle">remove flag</text>
   </g>
-  <g transform="translate(982 230)">
+  <g transform="translate(1070 230)">
     <rect class="warn" width="150" height="80" rx="14"/>
     <text class="label" x="75" y="34" text-anchor="middle">Disabled</text>
     <text class="small" x="75" y="59" text-anchor="middle">risk contained</text>
@@ -63,14 +63,13 @@
   <polygon class="arrow" points="602,198 590,190 590,206"/>
   <path class="line" d="M760 198 H788"/>
   <polygon class="arrow" points="788,198 776,190 776,206"/>
-  <path class="line" d="M946 198 C960 198 962 150 974 150"/>
-  <polygon class="arrow" points="974,150 962,142 962,158"/>
-  <path class="line" d="M946 198 C960 198 962 270 974 270"/>
-  <polygon class="arrow" points="974,270 962,262 962,278"/>
+  <path class="line" d="M946 198 C988 198 1012 150 1062 150"/>
+  <polygon class="arrow" points="1062,150 1050,142 1050,158"/>
+  <path class="line" d="M946 198 C988 198 1012 270 1062 270"/>
+  <polygon class="arrow" points="1062,270 1050,262 1050,278"/>
 
   <g transform="translate(90 315)">
-    <rect x="0" y="0" width="1020" height="50" rx="12" fill="#e2e8f0"/>
-    <text x="510" y="32" text-anchor="middle" class="small" style="font-size:18px">A feature flag is not done when it ships. It is done when the team knows what to do next.</text>
+    <rect x="0" y="0" width="1100" height="50" rx="12" fill="#e2e8f0"/>
+    <text x="550" y="32" text-anchor="middle" class="small" style="font-size:18px">A feature flag is not done when it ships. It is done when the team knows what to do next.</text>
   </g>
 </svg>
-
