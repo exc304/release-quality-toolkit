@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Signal versus noise in release quality</title>
+  <desc id="desc">A comparison of noisy release metrics and meaningful release signals.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .noise { fill: #fff7ed; stroke: #f97316; }
+      .signal { fill: #ecfdf5; stroke: #10b981; }
+      .title { fill: #0f172a; font: 700 34px Arial, sans-serif; }
+      .h2 { fill: #0f172a; font: 700 26px Arial, sans-serif; }
+      .item { fill: #334155; font: 19px Arial, sans-serif; }
+      .small { fill: #64748b; font: 16px Arial, sans-serif; }
+      .metric { fill: #f1f5f9; stroke: #cbd5e1; }
+      .good { fill: #dcfce7; stroke: #22c55e; }
+      .warn { fill: #fef3c7; stroke: #f59e0b; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="620" rx="24"/>
+  <text x="60" y="62" class="title">Signal vs. Noise</text>
+  <text x="60" y="94" class="small">Release confidence improves when teams separate dashboard polish from decision-grade evidence.</text>
+
+  <g transform="translate(60 135)">
+    <rect class="panel noise" width="505" height="390" rx="16"/>
+    <text x="32" y="54" class="h2">Noise</text>
+    <text x="32" y="87" class="small">Looks useful, but hides uncertainty.</text>
+
+    <g transform="translate(32 128)">
+      <rect class="metric" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">100% pass rate without context</text>
+    </g>
+    <g transform="translate(32 195)">
+      <rect class="metric" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">Large test count, shallow checks</text>
+    </g>
+    <g transform="translate(32 262)">
+      <rect class="metric" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">Skipped paths counted as ready</text>
+    </g>
+    <g transform="translate(32 329)">
+      <rect class="metric" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">Unknown flags buried in config</text>
+    </g>
+  </g>
+
+  <g transform="translate(635 135)">
+    <rect class="panel signal" width="505" height="390" rx="16"/>
+    <text x="32" y="54" class="h2">Signal</text>
+    <text x="32" y="87" class="small">Evidence that helps humans decide.</text>
+
+    <g transform="translate(32 128)">
+      <rect class="good" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">Substantive assertions verified</text>
+    </g>
+    <g transform="translate(32 195)">
+      <rect class="good" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">Scope explicit: tested, skipped, deferred</text>
+    </g>
+    <g transform="translate(32 262)">
+      <rect class="good" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">Risks named with owners</text>
+    </g>
+    <g transform="translate(32 329)">
+      <rect class="good" width="440" height="50" rx="10"/>
+      <text x="24" y="32" class="item">Rollback path understood</text>
+    </g>
+  </g>
+
+  <g transform="translate(60 555)">
+    <rect class="warn" width="1080" height="44" rx="12"/>
+    <text x="540" y="29" text-anchor="middle" class="item" style="font-size:18px">A green dashboard is a starting point. Release confidence comes from evidence you can explain.</text>
+  </g>
+</svg>
+

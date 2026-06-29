@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Feature flag lifecycle</title>
+  <desc id="desc">A lifecycle diagram showing a feature flag moving from proposed to scoped, tested, enabled, monitored, and then disabled or graduated.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .node { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .active { fill: #ecfdf5; stroke: #10b981; }
+      .warn { fill: #fef3c7; stroke: #f59e0b; }
+      .done { fill: #e0f2fe; stroke: #0284c7; }
+      .title { fill: #0f172a; font: 700 32px Arial, sans-serif; }
+      .label { fill: #0f172a; font: 700 20px Arial, sans-serif; }
+      .small { fill: #475569; font: 16px Arial, sans-serif; }
+      .line { stroke: #64748b; stroke-width: 4; fill: none; stroke-linecap: round; }
+      .arrow { fill: #64748b; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="420" rx="24"/>
+  <text x="60" y="58" class="title">Feature Flag Lifecycle</text>
+  <text x="60" y="88" class="small">Flags reduce release risk when ownership, test coverage, defaults, and disablement paths are explicit.</text>
+
+  <g transform="translate(52 150)">
+    <rect class="node" width="150" height="95" rx="14"/>
+    <text class="label" x="75" y="39" text-anchor="middle">Proposed</text>
+    <text class="small" x="75" y="66" text-anchor="middle">why it exists</text>
+  </g>
+  <g transform="translate(238 150)">
+    <rect class="node" width="150" height="95" rx="14"/>
+    <text class="label" x="75" y="39" text-anchor="middle">Scoped</text>
+    <text class="small" x="75" y="66" text-anchor="middle">default + owner</text>
+  </g>
+  <g transform="translate(424 150)">
+    <rect class="warn" width="150" height="95" rx="14"/>
+    <text class="label" x="75" y="39" text-anchor="middle">Tested</text>
+    <text class="small" x="75" y="66" text-anchor="middle">on and off</text>
+  </g>
+  <g transform="translate(610 150)">
+    <rect class="active" width="150" height="95" rx="14"/>
+    <text class="label" x="75" y="39" text-anchor="middle">Enabled</text>
+    <text class="small" x="75" y="66" text-anchor="middle">controlled rollout</text>
+  </g>
+  <g transform="translate(796 150)">
+    <rect class="node" width="150" height="95" rx="14"/>
+    <text class="label" x="75" y="39" text-anchor="middle">Monitored</text>
+    <text class="small" x="75" y="66" text-anchor="middle">watch signals</text>
+  </g>
+  <g transform="translate(982 110)">
+    <rect class="done" width="150" height="80" rx="14"/>
+    <text class="label" x="75" y="34" text-anchor="middle">Graduated</text>
+    <text class="small" x="75" y="59" text-anchor="middle">remove flag</text>
+  </g>
+  <g transform="translate(982 230)">
+    <rect class="warn" width="150" height="80" rx="14"/>
+    <text class="label" x="75" y="34" text-anchor="middle">Disabled</text>
+    <text class="small" x="75" y="59" text-anchor="middle">risk contained</text>
+  </g>
+
+  <path class="line" d="M202 198 H230"/>
+  <polygon class="arrow" points="230,198 218,190 218,206"/>
+  <path class="line" d="M388 198 H416"/>
+  <polygon class="arrow" points="416,198 404,190 404,206"/>
+  <path class="line" d="M574 198 H602"/>
+  <polygon class="arrow" points="602,198 590,190 590,206"/>
+  <path class="line" d="M760 198 H788"/>
+  <polygon class="arrow" points="788,198 776,190 776,206"/>
+  <path class="line" d="M946 198 C960 198 962 150 974 150"/>
+  <polygon class="arrow" points="974,150 962,142 962,158"/>
+  <path class="line" d="M946 198 C960 198 962 270 974 270"/>
+  <polygon class="arrow" points="974,270 962,262 962,278"/>
+
+  <g transform="translate(90 315)">
+    <rect x="0" y="0" width="1020" height="50" rx="12" fill="#e2e8f0"/>
+    <text x="510" y="32" text-anchor="middle" class="small" style="font-size:18px">A feature flag is not done when it ships. It is done when the team knows what to do next.</text>
+  </g>
+</svg>
+

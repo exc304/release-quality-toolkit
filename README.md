@@ -1,5 +1,7 @@
 # Release Quality Toolkit
 
+![Release Quality Toolkit banner](./assets/release-quality-toolkit-banner.jpg)
+
 Reusable release readiness artifacts for teams that want better confidence signals, clearer scope boundaries, and fewer surprises between "release candidate" and "production."
 
 This toolkit is built around a simple idea:
@@ -40,11 +42,31 @@ It is especially helpful when your system has multiple workflows, feature flags,
 
 ## Suggested Workflow
 
+![Release readiness flow](./assets/release-readiness-flow.svg)
+
 1. Use the release decision flowchart during planning to decide what should ship, defer, or ship behind a flag.
 2. Build a feature flag inventory before release candidate testing begins.
 3. Run the release readiness checklist before cutting a candidate and again before user acceptance or production.
 4. Use the test suite config example to organize coverage by workflow, risk, data, and dependency.
 5. Run a post-release review one to two weeks after launch and feed the action items into the next cycle.
+
+## Visual Guides
+
+### Toolkit Map
+
+![Toolkit map](./assets/toolkit-map.svg)
+
+### Signal vs. Noise
+
+![Signal vs. noise](./assets/signal-vs-noise.svg)
+
+### Go / No-Go Decision Matrix
+
+![Go / no-go decision matrix](./assets/go-no-go-matrix.svg)
+
+### Feature Flag Lifecycle
+
+![Feature flag lifecycle](./assets/feature-flag-lifecycle.svg)
 
 ## Public Use Notes
 
@@ -55,4 +77,3 @@ If you adapt these templates, replace the sample workflows, flags, owners, envir
 ## Maintainer
 
 Created by Erin Crise as a practical collection of quality engineering and release management patterns.
-

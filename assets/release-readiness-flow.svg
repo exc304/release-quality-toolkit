@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Release readiness flow</title>
+  <desc id="desc">A release readiness workflow moving from plan to scope, test, signal review, risk decision, and final ship, flag, or defer outcome.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .gate { fill: #0f172a; }
+      .gateText { fill: #ffffff; font: 700 22px Arial, sans-serif; }
+      .label { fill: #0f172a; font: 700 21px Arial, sans-serif; }
+      .small { fill: #475569; font: 16px Arial, sans-serif; }
+      .line { stroke: #64748b; stroke-width: 4; fill: none; stroke-linecap: round; }
+      .arrow { fill: #64748b; }
+      .ship { fill: #dcfce7; stroke: #16a34a; }
+      .flag { fill: #fef3c7; stroke: #d97706; }
+      .defer { fill: #fee2e2; stroke: #dc2626; }
+      .outcomeText { fill: #0f172a; font: 700 18px Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="420" rx="24"/>
+  <text x="60" y="58" class="label" style="font-size:30px">Release Readiness Flow</text>
+  <text x="60" y="88" class="small">Move from scope clarity to evidence-based release decisions.</text>
+
+  <g transform="translate(58 140)">
+    <rect class="card" x="0" y="0" width="145" height="105" rx="12"/>
+    <text class="label" x="72.5" y="42" text-anchor="middle">Plan</text>
+    <text class="small" x="72.5" y="70" text-anchor="middle">define intent</text>
+  </g>
+  <g transform="translate(240 140)">
+    <rect class="card" x="0" y="0" width="145" height="105" rx="12"/>
+    <text class="label" x="72.5" y="42" text-anchor="middle">Scope</text>
+    <text class="small" x="72.5" y="70" text-anchor="middle">name boundaries</text>
+  </g>
+  <g transform="translate(422 140)">
+    <rect class="card" x="0" y="0" width="145" height="105" rx="12"/>
+    <text class="label" x="72.5" y="42" text-anchor="middle">Test</text>
+    <text class="small" x="72.5" y="70" text-anchor="middle">run evidence</text>
+  </g>
+  <g transform="translate(604 140)">
+    <rect class="card" x="0" y="0" width="170" height="105" rx="12"/>
+    <text class="label" x="85" y="42" text-anchor="middle">Signal Review</text>
+    <text class="small" x="85" y="70" text-anchor="middle">trust the proof</text>
+  </g>
+  <g transform="translate(824 140)">
+    <rect class="gate" x="0" y="0" width="170" height="105" rx="12"/>
+    <text class="gateText" x="85" y="42" text-anchor="middle">Risk</text>
+    <text class="gateText" x="85" y="70" text-anchor="middle">Decision</text>
+  </g>
+
+  <g>
+    <path class="line" d="M204 192 H232"/>
+    <polygon class="arrow" points="232,192 220,184 220,200"/>
+    <path class="line" d="M386 192 H414"/>
+    <polygon class="arrow" points="414,192 402,184 402,200"/>
+    <path class="line" d="M568 192 H596"/>
+    <polygon class="arrow" points="596,192 584,184 584,200"/>
+    <path class="line" d="M775 192 H816"/>
+    <polygon class="arrow" points="816,192 804,184 804,200"/>
+  </g>
+
+  <g transform="translate(1040 84)">
+    <rect class="ship" x="0" y="0" width="118" height="70" rx="12"/>
+    <text class="outcomeText" x="59" y="43" text-anchor="middle">Ship</text>
+    <rect class="flag" x="0" y="98" width="118" height="70" rx="12"/>
+    <text class="outcomeText" x="59" y="141" text-anchor="middle">Flag</text>
+    <rect class="defer" x="0" y="196" width="118" height="70" rx="12"/>
+    <text class="outcomeText" x="59" y="239" text-anchor="middle">Defer</text>
+  </g>
+
+  <path class="line" d="M994 192 C1012 192 1019 119 1034 119"/>
+  <polygon class="arrow" points="1034,119 1022,111 1022,127"/>
+  <path class="line" d="M994 192 H1034"/>
+  <polygon class="arrow" points="1034,192 1022,184 1022,200"/>
+  <path class="line" d="M994 192 C1012 192 1019 265 1034 265"/>
+  <polygon class="arrow" points="1034,265 1022,257 1022,273"/>
+
+  <g transform="translate(60 310)">
+    <rect x="0" y="0" width="1080" height="58" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+    <text x="540" y="36" text-anchor="middle" class="small" style="font-size:18px; fill:#075985">The question is not \"is it green?\" The question is \"what evidence supports the decision?\"</text>
+  </g>
+</svg>
+

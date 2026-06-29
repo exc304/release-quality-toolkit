@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Release Quality Toolkit map</title>
+  <desc id="desc">A map of the toolkit artifacts and how they support release planning, readiness, decision-making, and post-release learning.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .center { fill: #0f172a; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .accent1 { fill: #ecfdf5; stroke: #10b981; }
+      .accent2 { fill: #e0f2fe; stroke: #0284c7; }
+      .accent3 { fill: #fef3c7; stroke: #f59e0b; }
+      .accent4 { fill: #fee2e2; stroke: #ef4444; }
+      .accent5 { fill: #f1f5f9; stroke: #64748b; }
+      .title { fill: #0f172a; font: 700 32px Arial, sans-serif; }
+      .centerText { fill: #ffffff; font: 700 24px Arial, sans-serif; }
+      .label { fill: #0f172a; font: 700 21px Arial, sans-serif; }
+      .small { fill: #475569; font: 16px Arial, sans-serif; }
+      .line { stroke: #94a3b8; stroke-width: 4; fill: none; stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="760" rx="24"/>
+  <text x="60" y="58" class="title">Toolkit Map</text>
+  <text x="60" y="88" class="small">Each artifact answers a different release-readiness question.</text>
+
+  <g transform="translate(450 292)">
+    <rect class="center" width="300" height="150" rx="18"/>
+    <text class="centerText" x="150" y="60" text-anchor="middle">Release Quality</text>
+    <text class="centerText" x="150" y="94" text-anchor="middle">Toolkit</text>
+  </g>
+
+  <path class="line" d="M600 292 V205"/>
+  <path class="line" d="M450 355 H310"/>
+  <path class="line" d="M750 355 H890"/>
+  <path class="line" d="M498 442 L350 560"/>
+  <path class="line" d="M702 442 L850 560"/>
+
+  <g transform="translate(390 105)">
+    <rect class="card accent2" width="420" height="100" rx="14"/>
+    <text class="label" x="210" y="38" text-anchor="middle">Release Readiness Checklist</text>
+    <text class="small" x="210" y="68" text-anchor="middle">What evidence is required before the gate?</text>
+  </g>
+
+  <g transform="translate(70 305)">
+    <rect class="card accent1" width="240" height="100" rx="14"/>
+    <text class="label" x="120" y="38" text-anchor="middle">Decision Flowchart</text>
+    <text class="small" x="120" y="68" text-anchor="middle">Ship, flag, or defer?</text>
+  </g>
+
+  <g transform="translate(890 305)">
+    <rect class="card accent3" width="240" height="100" rx="14"/>
+    <text class="label" x="120" y="38" text-anchor="middle">Feature Flags</text>
+    <text class="small" x="120" y="68" text-anchor="middle">What is enabled and why?</text>
+  </g>
+
+  <g transform="translate(170 560)">
+    <rect class="card accent5" width="360" height="105" rx="14"/>
+    <text class="label" x="180" y="38" text-anchor="middle">Test Suite Config Example</text>
+    <text class="small" x="180" y="68" text-anchor="middle">How are workflows, data, and risks organized?</text>
+  </g>
+
+  <g transform="translate(670 560)">
+    <rect class="card accent4" width="360" height="105" rx="14"/>
+    <text class="label" x="180" y="38" text-anchor="middle">Post-Release Review</text>
+    <text class="small" x="180" y="68" text-anchor="middle">What did this release teach us?</text>
+  </g>
+</svg>
+
