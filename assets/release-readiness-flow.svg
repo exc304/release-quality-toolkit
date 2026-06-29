@@ -1,81 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
   <title id="title">Release readiness flow</title>
-  <desc id="desc">A release readiness workflow moving from plan to scope, test, signal review, risk decision, and final ship, flag, or defer outcome.</desc>
+  <desc id="desc">A hand-drawn engineering workflow moving from plan to scope, test, signal review, risk decision, and ship, flag, or defer outcomes.</desc>
   <defs>
+    <filter id="paperShadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="3" dy="5" stdDeviation="0.8" flood-color="#111827" flood-opacity="0.22"/>
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="1" seed="8"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.2"/>
+    </filter>
     <style>
-      .bg { fill: #f8fafc; }
-      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
-      .gate { fill: #0f172a; }
-      .gateText { fill: #ffffff; font: 700 22px Arial, sans-serif; }
-      .label { fill: #0f172a; font: 700 21px Arial, sans-serif; }
-      .small { fill: #475569; font: 16px Arial, sans-serif; }
-      .line { stroke: #64748b; stroke-width: 4; fill: none; stroke-linecap: round; }
-      .arrow { fill: #64748b; }
-      .ship { fill: #dcfce7; stroke: #16a34a; }
-      .flag { fill: #fef3c7; stroke: #d97706; }
-      .defer { fill: #fee2e2; stroke: #dc2626; }
-      .outcomeText { fill: #0f172a; font: 700 18px Arial, sans-serif; }
+      .paper { fill: #fffdf7; }
+      .title { fill: #111827; font: 800 34px "Comic Sans MS", "Marker Felt", Arial, sans-serif; letter-spacing: 0; }
+      .subtitle { fill: #374151; font: 18px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .cardText { fill: #111827; font: 800 22px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .small { fill: #374151; font: 16px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .tiny { fill: #4b5563; font: 13px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .ink { stroke: #111827; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .thinInk { stroke: #111827; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke: #6b7280; stroke-width: 2; stroke-dasharray: 5 5; fill: none; }
+      .dot { fill: #111827; }
+      .arrow { fill: #111827; }
+      .plan { fill: #67e8f9; }
+      .scope { fill: #fef08a; }
+      .test { fill: #86efac; }
+      .signal { fill: #f0abfc; }
+      .risk { fill: #111827; }
+      .ship { fill: #bbf7d0; }
+      .flag { fill: #fde68a; }
+      .defer { fill: #fecaca; }
+      .note { fill: #dbeafe; stroke: #111827; stroke-width: 2.5; }
+      .riskText { fill: #ffffff; font: 800 22px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
     </style>
   </defs>
-  <rect class="bg" width="1200" height="420" rx="24"/>
-  <text x="60" y="58" class="label" style="font-size:30px">Release Readiness Flow</text>
-  <text x="60" y="88" class="small">Move from scope clarity to evidence-based release decisions.</text>
 
-  <g transform="translate(58 140)">
-    <rect class="card" x="0" y="0" width="145" height="105" rx="12"/>
-    <text class="label" x="72.5" y="42" text-anchor="middle">Plan</text>
-    <text class="small" x="72.5" y="70" text-anchor="middle">define intent</text>
+  <rect class="paper" width="1280" height="520" rx="28"/>
+  <path class="dash" d="M26 24 H1254 V496 H26 Z" opacity="0.45"/>
+
+  <text x="62" y="64" class="title">Release Readiness Flow</text>
+  <text x="64" y="96" class="subtitle">Evidence-based release decisions, drawn like a working notebook.</text>
+
+  <g filter="url(#paperShadow)">
+    <path class="plan" d="M78 164 Q80 150 96 151 L224 150 Q238 151 240 166 L237 248 Q235 262 219 264 L96 265 Q80 264 78 248 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M78 164 Q80 150 96 151 L224 150 Q238 151 240 166 L237 248 Q235 262 219 264 L96 265 Q80 264 78 248 Z"/>
+    <text x="159" y="198" class="cardText" text-anchor="middle">Plan</text>
+    <text x="159" y="228" class="small" text-anchor="middle">define intent</text>
+
+    <path class="scope" d="M290 158 Q294 146 310 149 L442 148 Q454 150 458 164 L456 246 Q452 261 438 263 L310 262 Q292 260 290 245 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M290 158 Q294 146 310 149 L442 148 Q454 150 458 164 L456 246 Q452 261 438 263 L310 262 Q292 260 290 245 Z"/>
+    <text x="374" y="198" class="cardText" text-anchor="middle">Scope</text>
+    <text x="374" y="228" class="small" text-anchor="middle">name boundaries</text>
+
+    <path class="test" d="M506 162 Q510 148 526 150 L657 149 Q674 150 676 166 L672 247 Q670 262 654 264 L526 263 Q510 262 506 246 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M506 162 Q510 148 526 150 L657 149 Q674 150 676 166 L672 247 Q670 262 654 264 L526 263 Q510 262 506 246 Z"/>
+    <text x="591" y="198" class="cardText" text-anchor="middle">Test</text>
+    <text x="591" y="228" class="small" text-anchor="middle">run evidence</text>
+
+    <path class="signal" d="M724 156 Q728 146 744 148 L900 150 Q914 151 918 166 L916 246 Q913 260 898 263 L744 264 Q728 262 724 246 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M724 156 Q728 146 744 148 L900 150 Q914 151 918 166 L916 246 Q913 260 898 263 L744 264 Q728 262 724 246 Z"/>
+    <text x="821" y="198" class="cardText" text-anchor="middle">Signal Review</text>
+    <text x="821" y="228" class="small" text-anchor="middle">trust the proof</text>
+
+    <path class="risk" d="M966 158 Q970 146 988 149 L1110 148 Q1128 150 1131 168 L1128 246 Q1125 262 1108 264 L988 263 Q970 262 966 246 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M966 158 Q970 146 988 149 L1110 148 Q1128 150 1131 168 L1128 246 Q1125 262 1108 264 L988 263 Q970 262 966 246 Z"/>
+    <text x="1048" y="196" class="riskText" text-anchor="middle">Risk</text>
+    <text x="1048" y="226" class="riskText" text-anchor="middle">Decision</text>
   </g>
-  <g transform="translate(240 140)">
-    <rect class="card" x="0" y="0" width="145" height="105" rx="12"/>
-    <text class="label" x="72.5" y="42" text-anchor="middle">Scope</text>
-    <text class="small" x="72.5" y="70" text-anchor="middle">name boundaries</text>
+
+  <path class="ink" d="M240 208 C260 207 270 208 286 208"/>
+  <polygon class="arrow" points="286,208 272,199 272,217"/>
+  <path class="ink" d="M458 208 C480 208 490 207 502 208"/>
+  <polygon class="arrow" points="502,208 488,199 488,217"/>
+  <path class="ink" d="M676 208 C697 207 708 208 720 208"/>
+  <polygon class="arrow" points="720,208 706,199 706,217"/>
+  <path class="ink" d="M918 208 C938 208 949 207 962 208"/>
+  <polygon class="arrow" points="962,208 948,199 948,217"/>
+
+  <circle class="dot" cx="240" cy="208" r="7"/>
+  <circle class="dot" cx="458" cy="208" r="7"/>
+  <circle class="dot" cx="676" cy="208" r="7"/>
+  <circle class="dot" cx="918" cy="208" r="7"/>
+
+  <g filter="url(#paperShadow)">
+    <path class="ship" d="M1162 104 Q1165 94 1178 96 L1235 95 Q1249 96 1251 110 L1248 156 Q1246 170 1232 170 L1178 171 Q1162 170 1160 156 Z"/>
+    <path class="thinInk" d="M1162 104 Q1165 94 1178 96 L1235 95 Q1249 96 1251 110 L1248 156 Q1246 170 1232 170 L1178 171 Q1162 170 1160 156 Z"/>
+    <text x="1206" y="140" class="cardText" text-anchor="middle">Ship</text>
+
+    <path class="flag" d="M1160 188 Q1162 176 1178 178 L1236 176 Q1250 178 1252 192 L1248 238 Q1246 252 1232 252 L1178 253 Q1162 252 1160 238 Z"/>
+    <path class="thinInk" d="M1160 188 Q1162 176 1178 178 L1236 176 Q1250 178 1252 192 L1248 238 Q1246 252 1232 252 L1178 253 Q1162 252 1160 238 Z"/>
+    <text x="1206" y="222" class="cardText" text-anchor="middle">Flag</text>
+
+    <path class="defer" d="M1160 270 Q1164 260 1178 262 L1236 260 Q1250 262 1252 276 L1248 322 Q1246 336 1232 336 L1178 337 Q1162 336 1160 322 Z"/>
+    <path class="thinInk" d="M1160 270 Q1164 260 1178 262 L1236 260 Q1250 262 1252 276 L1248 322 Q1246 336 1232 336 L1178 337 Q1162 336 1160 322 Z"/>
+    <text x="1206" y="305" class="cardText" text-anchor="middle">Defer</text>
   </g>
-  <g transform="translate(422 140)">
-    <rect class="card" x="0" y="0" width="145" height="105" rx="12"/>
-    <text class="label" x="72.5" y="42" text-anchor="middle">Test</text>
-    <text class="small" x="72.5" y="70" text-anchor="middle">run evidence</text>
-  </g>
-  <g transform="translate(604 140)">
-    <rect class="card" x="0" y="0" width="170" height="105" rx="12"/>
-    <text class="label" x="85" y="42" text-anchor="middle">Signal Review</text>
-    <text class="small" x="85" y="70" text-anchor="middle">trust the proof</text>
-  </g>
-  <g transform="translate(824 140)">
-    <rect class="gate" x="0" y="0" width="170" height="105" rx="12"/>
-    <text class="gateText" x="85" y="42" text-anchor="middle">Risk</text>
-    <text class="gateText" x="85" y="70" text-anchor="middle">Decision</text>
-  </g>
+
+  <path class="ink" d="M1130 208 C1144 208 1147 134 1157 134"/>
+  <polygon class="arrow" points="1157,134 1144,126 1145,143"/>
+  <path class="ink" d="M1130 208 C1145 208 1148 216 1157 216"/>
+  <polygon class="arrow" points="1157,216 1144,208 1145,225"/>
+  <path class="ink" d="M1130 208 C1144 208 1148 298 1157 298"/>
+  <polygon class="arrow" points="1157,298 1144,290 1145,307"/>
 
   <g>
-    <path class="line" d="M204 192 H232"/>
-    <polygon class="arrow" points="232,192 220,184 220,200"/>
-    <path class="line" d="M386 192 H414"/>
-    <polygon class="arrow" points="414,192 402,184 402,200"/>
-    <path class="line" d="M568 192 H596"/>
-    <polygon class="arrow" points="596,192 584,184 584,200"/>
-    <path class="line" d="M775 192 H816"/>
-    <polygon class="arrow" points="816,192 804,184 804,200"/>
+    <rect x="72" y="350" width="450" height="88" class="note" rx="8" filter="url(#paperShadow)"/>
+    <text x="95" y="382" class="cardText">Engineer note</text>
+    <text x="95" y="411" class="small">Green is useful only when the evidence is explainable.</text>
   </g>
-
-  <g transform="translate(1040 108)">
-    <rect class="ship" x="0" y="0" width="118" height="60" rx="12"/>
-    <text class="outcomeText" x="59" y="37" text-anchor="middle">Ship</text>
-    <rect class="flag" x="0" y="80" width="118" height="60" rx="12"/>
-    <text class="outcomeText" x="59" y="117" text-anchor="middle">Flag</text>
-    <rect class="defer" x="0" y="160" width="118" height="60" rx="12"/>
-    <text class="outcomeText" x="59" y="197" text-anchor="middle">Defer</text>
-  </g>
-
-  <path class="line" d="M994 192 C1012 192 1019 138 1034 138"/>
-  <polygon class="arrow" points="1034,138 1022,130 1022,146"/>
-  <path class="line" d="M994 192 C1012 192 1019 218 1034 218"/>
-  <polygon class="arrow" points="1034,218 1022,210 1022,226"/>
-  <path class="line" d="M994 192 C1012 192 1019 298 1034 298"/>
-  <polygon class="arrow" points="1034,298 1022,290 1022,306"/>
-
-  <g transform="translate(60 342)">
-    <rect x="0" y="0" width="1080" height="58" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-    <text x="540" y="36" text-anchor="middle" class="small" style="font-size:18px; fill:#075985">Release confidence asks: is it green, and what evidence supports the decision?</text>
+  <g>
+    <rect x="640" y="352" width="520" height="88" class="note" rx="8" filter="url(#paperShadow)"/>
+    <text x="665" y="383" class="cardText">Release confidence asks</text>
+    <text x="665" y="412" class="small">Is it green, and what evidence supports the decision?</text>
   </g>
 </svg>

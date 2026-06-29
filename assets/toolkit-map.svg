@@ -1,67 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
   <title id="title">Release Quality Toolkit map</title>
-  <desc id="desc">A map of the toolkit artifacts and how they support release planning, readiness, decision-making, and post-release learning.</desc>
+  <desc id="desc">A hand-drawn map of toolkit artifacts and how they support release planning, readiness, decisions, flag control, test organization, and post-release learning.</desc>
   <defs>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="4" dy="6" stdDeviation="0.9" flood-color="#111827" flood-opacity="0.22"/>
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="1" seed="33"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.1"/>
+    </filter>
     <style>
-      .bg { fill: #f8fafc; }
-      .center { fill: #0f172a; }
-      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
-      .accent1 { fill: #ecfdf5; stroke: #10b981; }
-      .accent2 { fill: #e0f2fe; stroke: #0284c7; }
-      .accent3 { fill: #fef3c7; stroke: #f59e0b; }
-      .accent4 { fill: #fee2e2; stroke: #ef4444; }
-      .accent5 { fill: #f1f5f9; stroke: #64748b; }
-      .title { fill: #0f172a; font: 700 32px Arial, sans-serif; }
-      .centerText { fill: #ffffff; font: 700 24px Arial, sans-serif; }
-      .label { fill: #0f172a; font: 700 21px Arial, sans-serif; }
-      .small { fill: #475569; font: 16px Arial, sans-serif; }
-      .line { stroke: #94a3b8; stroke-width: 4; fill: none; stroke-linecap: round; }
+      .paper { fill: #fffdf7; }
+      .title { fill: #111827; font: 800 34px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .subtitle { fill: #374151; font: 18px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .centerText { fill: #ffffff; font: 800 26px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .label { fill: #111827; font: 800 21px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .small { fill: #374151; font: 16px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .ink { stroke: #111827; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .thinInk { stroke: #111827; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke: #6b7280; stroke-width: 2; stroke-dasharray: 5 5; fill: none; }
+      .center { fill: #111827; }
+      .readiness { fill: #dbeafe; }
+      .decision { fill: #bbf7d0; }
+      .flags { fill: #fde68a; }
+      .config { fill: #67e8f9; }
+      .review { fill: #fecaca; }
     </style>
   </defs>
-  <rect class="bg" width="1200" height="760" rx="24"/>
-  <text x="60" y="58" class="title">Toolkit Map</text>
-  <text x="60" y="88" class="small">Each artifact answers a different release-readiness question.</text>
 
-  <g transform="translate(450 292)">
-    <rect class="center" width="300" height="150" rx="18"/>
-    <text class="centerText" x="150" y="60" text-anchor="middle">Release Quality</text>
-    <text class="centerText" x="150" y="94" text-anchor="middle">Toolkit</text>
+  <rect class="paper" width="1280" height="820" rx="28"/>
+  <path class="dash" d="M26 24 H1254 V796 H26 Z" opacity="0.45"/>
+  <text x="64" y="64" class="title">Toolkit Map</text>
+  <text x="66" y="96" class="subtitle">A working map of what each artifact helps you decide.</text>
+
+  <g filter="url(#shadow)">
+    <path class="center" d="M500 318 Q506 294 532 296 L748 294 Q774 296 780 322 L776 456 Q770 482 744 484 L532 482 Q506 480 500 456 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M500 318 Q506 294 532 296 L748 294 Q774 296 780 322 L776 456 Q770 482 744 484 L532 482 Q506 480 500 456 Z"/>
+    <text x="640" y="365" class="centerText" text-anchor="middle">Release Quality</text>
+    <text x="640" y="402" class="centerText" text-anchor="middle">Toolkit</text>
+    <text x="640" y="436" class="centerText" text-anchor="middle">map</text>
   </g>
 
-  <path class="line" d="M600 292 V205"/>
-  <path class="line" d="M450 355 H310"/>
-  <path class="line" d="M750 355 H890"/>
-  <path class="line" d="M498 442 L350 560"/>
-  <path class="line" d="M702 442 L850 560"/>
+  <path class="ink" d="M640 296 C640 240 640 222 640 190"/>
+  <path class="ink" d="M500 390 C390 390 338 390 286 390"/>
+  <path class="ink" d="M780 390 C888 390 938 390 992 390"/>
+  <path class="ink" d="M540 480 C456 548 420 586 360 636"/>
+  <path class="ink" d="M740 480 C824 548 860 586 920 636"/>
 
-  <g transform="translate(390 105)">
-    <rect class="card accent2" width="420" height="100" rx="14"/>
-    <text class="label" x="210" y="38" text-anchor="middle">Release Readiness Checklist</text>
-    <text class="small" x="210" y="68" text-anchor="middle">What evidence is required before the gate?</text>
-  </g>
+  <g filter="url(#shadow)">
+    <path class="readiness" d="M420 120 Q426 104 446 106 L834 104 Q854 106 860 124 L856 188 Q852 206 832 208 L448 206 Q426 204 420 188 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M420 120 Q426 104 446 106 L834 104 Q854 106 860 124 L856 188 Q852 206 832 208 L448 206 Q426 204 420 188 Z"/>
+    <text x="640" y="148" class="label" text-anchor="middle">Release Readiness Checklist</text>
+    <text x="640" y="178" class="small" text-anchor="middle">What evidence is required before the gate?</text>
 
-  <g transform="translate(70 305)">
-    <rect class="card accent1" width="240" height="100" rx="14"/>
-    <text class="label" x="120" y="38" text-anchor="middle">Decision Flowchart</text>
-    <text class="small" x="120" y="68" text-anchor="middle">Ship, flag, or defer?</text>
-  </g>
+    <path class="decision" d="M70 340 Q74 324 94 326 L282 324 Q302 326 306 344 L302 424 Q298 444 278 446 L96 444 Q74 442 70 424 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M70 340 Q74 324 94 326 L282 324 Q302 326 306 344 L302 424 Q298 444 278 446 L96 444 Q74 442 70 424 Z"/>
+    <text x="188" y="374" class="label" text-anchor="middle">Decision Flowchart</text>
+    <text x="188" y="404" class="small" text-anchor="middle">Ship, flag, or defer?</text>
 
-  <g transform="translate(890 305)">
-    <rect class="card accent3" width="240" height="100" rx="14"/>
-    <text class="label" x="120" y="38" text-anchor="middle">Feature Flags</text>
-    <text class="small" x="120" y="68" text-anchor="middle">What is enabled and why?</text>
-  </g>
+    <path class="flags" d="M982 340 Q986 324 1006 326 L1194 324 Q1214 326 1218 344 L1214 424 Q1210 444 1190 446 L1008 444 Q986 442 982 424 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M982 340 Q986 324 1006 326 L1194 324 Q1214 326 1218 344 L1214 424 Q1210 444 1190 446 L1008 444 Q986 442 982 424 Z"/>
+    <text x="1100" y="374" class="label" text-anchor="middle">Feature Flags</text>
+    <text x="1100" y="404" class="small" text-anchor="middle">What is enabled and why?</text>
 
-  <g transform="translate(170 560)">
-    <rect class="card accent5" width="360" height="105" rx="14"/>
-    <text class="label" x="180" y="38" text-anchor="middle">Test Suite Config Example</text>
-    <text class="small" x="180" y="68" text-anchor="middle">How are workflows, data, and risks organized?</text>
-  </g>
+    <path class="config" d="M140 628 Q146 610 168 612 L552 610 Q574 612 580 632 L576 704 Q572 724 548 726 L170 724 Q146 722 140 704 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M140 628 Q146 610 168 612 L552 610 Q574 612 580 632 L576 704 Q572 724 548 726 L170 724 Q146 722 140 704 Z"/>
+    <text x="360" y="660" class="label" text-anchor="middle">Test Suite Config Example</text>
+    <text x="360" y="691" class="small" text-anchor="middle">How are workflows, data, and risks organized?</text>
 
-  <g transform="translate(670 560)">
-    <rect class="card accent4" width="360" height="105" rx="14"/>
-    <text class="label" x="180" y="38" text-anchor="middle">Post-Release Review</text>
-    <text class="small" x="180" y="68" text-anchor="middle">What did this release teach us?</text>
+    <path class="review" d="M700 628 Q706 610 728 612 L1112 610 Q1134 612 1140 632 L1136 704 Q1132 724 1108 726 L730 724 Q706 722 700 704 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M700 628 Q706 610 728 612 L1112 610 Q1134 612 1140 632 L1136 704 Q1132 724 1108 726 L730 724 Q706 722 700 704 Z"/>
+    <text x="920" y="660" class="label" text-anchor="middle">Post-Release Review</text>
+    <text x="920" y="691" class="small" text-anchor="middle">What did this release teach us?</text>
   </g>
 </svg>
-

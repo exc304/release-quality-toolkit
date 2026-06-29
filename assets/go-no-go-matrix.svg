@@ -1,57 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="820" viewBox="0 0 1180 820" role="img" aria-labelledby="title desc">
   <title id="title">Go no-go decision matrix</title>
-  <desc id="desc">A four-quadrant matrix comparing release risk and evidence strength to support ship, flag, investigate, and defer decisions.</desc>
+  <desc id="desc">A hand-drawn four-quadrant matrix comparing evidence strength and release risk to support ship, flag and ship, investigate, and defer decisions.</desc>
   <defs>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="4" dy="6" stdDeviation="0.9" flood-color="#111827" flood-opacity="0.22"/>
+    </filter>
     <style>
-      .bg { fill: #f8fafc; }
-      .axis { stroke: #334155; stroke-width: 4; }
-      .label { fill: #0f172a; font: 700 24px Arial, sans-serif; }
-      .small { fill: #475569; font: 17px Arial, sans-serif; }
-      .quadTitle { fill: #0f172a; font: 700 30px Arial, sans-serif; }
-      .quadText { fill: #334155; font: 18px Arial, sans-serif; }
-      .ship { fill: #dcfce7; }
-      .flag { fill: #fef3c7; }
-      .investigate { fill: #e0f2fe; }
-      .defer { fill: #fee2e2; }
+      .paper { fill: #fffdf7; }
+      .title { fill: #111827; font: 800 34px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .subtitle { fill: #374151; font: 18px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .quadTitle { fill: #111827; font: 800 30px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .text { fill: #111827; font: 19px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .small { fill: #374151; font: 16px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .axisLabel { fill: #111827; font: 800 24px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .ink { stroke: #111827; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .thinInk { stroke: #111827; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke: #6b7280; stroke-width: 2; stroke-dasharray: 5 5; fill: none; }
+      .ship { fill: #bbf7d0; }
+      .flag { fill: #fde68a; }
+      .investigate { fill: #dbeafe; }
+      .defer { fill: #fecaca; }
+      .note { fill: #fef08a; stroke: #111827; stroke-width: 2.4; }
     </style>
   </defs>
-  <rect class="bg" width="1100" height="760" rx="24"/>
-  <text x="60" y="58" class="label" style="font-size:32px">Go / No-Go Decision Matrix</text>
-  <text x="60" y="90" class="small">Use evidence strength and release risk together. Neither axis is enough alone.</text>
 
-  <g transform="translate(190 145)">
-    <rect x="0" y="0" width="400" height="240" class="investigate"/>
-    <rect x="400" y="0" width="400" height="240" class="defer"/>
-    <rect x="0" y="240" width="400" height="240" class="ship"/>
-    <rect x="400" y="240" width="400" height="240" class="flag"/>
-    <line x1="400" y1="0" x2="400" y2="480" class="axis"/>
-    <line x1="0" y1="240" x2="800" y2="240" class="axis"/>
-    <rect x="0" y="0" width="800" height="480" fill="none" stroke="#334155" stroke-width="4"/>
+  <rect class="paper" width="1180" height="820" rx="28"/>
+  <path class="dash" d="M26 24 H1154 V796 H26 Z" opacity="0.45"/>
+  <text x="64" y="64" class="title">Go / No-Go Decision Matrix</text>
+  <text x="66" y="96" class="subtitle">A release decision is a judgment call. This keeps the judgment visible.</text>
 
-    <text x="200" y="70" text-anchor="middle" class="quadTitle">Investigate</text>
-    <text x="200" y="108" text-anchor="middle" class="quadText">Low risk, weak evidence</text>
-    <text x="200" y="140" text-anchor="middle" class="quadText">Find the missing proof.</text>
+  <g transform="translate(190 150)" filter="url(#shadow)">
+    <path class="investigate" d="M0 0 H390 V250 H0 Z"/>
+    <path class="defer" d="M390 0 H780 V250 H390 Z"/>
+    <path class="ship" d="M0 250 H390 V500 H0 Z"/>
+    <path class="flag" d="M390 250 H780 V500 H390 Z"/>
+    <path class="ink" d="M0 0 H780 V500 H0 Z"/>
+    <path class="ink" d="M390 0 V500"/>
+    <path class="ink" d="M0 250 H780"/>
 
-    <text x="600" y="70" text-anchor="middle" class="quadTitle">Defer</text>
-    <text x="600" y="108" text-anchor="middle" class="quadText">High risk, weak evidence</text>
-    <text x="600" y="140" text-anchor="middle" class="quadText">Do not ship ambiguity.</text>
+    <text x="195" y="78" text-anchor="middle" class="quadTitle">Investigate</text>
+    <text x="195" y="116" text-anchor="middle" class="text">low risk + weak evidence</text>
+    <text x="195" y="148" text-anchor="middle" class="small">find the missing proof</text>
 
-    <text x="200" y="310" text-anchor="middle" class="quadTitle">Ship</text>
-    <text x="200" y="348" text-anchor="middle" class="quadText">Low risk, strong evidence</text>
-    <text x="200" y="380" text-anchor="middle" class="quadText">Proceed with monitoring.</text>
+    <text x="585" y="78" text-anchor="middle" class="quadTitle">Defer</text>
+    <text x="585" y="116" text-anchor="middle" class="text">high risk + weak evidence</text>
+    <text x="585" y="148" text-anchor="middle" class="small">do not ship ambiguity</text>
 
-    <text x="600" y="310" text-anchor="middle" class="quadTitle">Flag &amp; Ship</text>
-    <text x="600" y="348" text-anchor="middle" class="quadText">High risk, strong evidence</text>
-    <text x="600" y="380" text-anchor="middle" class="quadText">Isolate and control rollout.</text>
+    <text x="195" y="328" text-anchor="middle" class="quadTitle">Ship</text>
+    <text x="195" y="366" text-anchor="middle" class="text">low risk + strong evidence</text>
+    <text x="195" y="398" text-anchor="middle" class="small">proceed with monitoring</text>
+
+    <text x="585" y="328" text-anchor="middle" class="quadTitle">Flag &amp; Ship</text>
+    <text x="585" y="366" text-anchor="middle" class="text">high risk + strong evidence</text>
+    <text x="585" y="398" text-anchor="middle" class="small">isolate the rollout</text>
   </g>
 
-  <text x="590" y="685" text-anchor="middle" class="label">Evidence Strength</text>
-  <text x="230" y="720" text-anchor="middle" class="small">Weak</text>
-  <text x="950" y="720" text-anchor="middle" class="small">Strong</text>
-  <g transform="translate(78 390) rotate(-90)">
-    <text x="0" y="0" text-anchor="middle" class="label">Release Risk</text>
+  <text x="580" y="710" text-anchor="middle" class="axisLabel">Evidence Strength</text>
+  <text x="222" y="742" text-anchor="middle" class="small">weak</text>
+  <text x="940" y="742" text-anchor="middle" class="small">strong</text>
+  <g transform="translate(92 410) rotate(-90)">
+    <text x="0" y="0" text-anchor="middle" class="axisLabel">Release Risk</text>
   </g>
-  <text x="92" y="625" text-anchor="middle" class="small" transform="rotate(-90 92 625)">Low</text>
-  <text x="92" y="220" text-anchor="middle" class="small" transform="rotate(-90 92 220)">High</text>
+  <text x="118" y="620" text-anchor="middle" class="small" transform="rotate(-90 118 620)">low</text>
+  <text x="118" y="220" text-anchor="middle" class="small" transform="rotate(-90 118 220)">high</text>
+
+  <g filter="url(#shadow)">
+    <rect x="836" y="82" width="230" height="72" class="note" rx="8"/>
+    <text x="951" y="113" class="small" text-anchor="middle">No square is automatic.</text>
+    <text x="951" y="137" class="small" text-anchor="middle">Use context.</text>
+  </g>
 </svg>
-

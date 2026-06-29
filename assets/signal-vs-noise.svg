@@ -1,74 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
   <title id="title">Signal versus noise in release quality</title>
-  <desc id="desc">A comparison of noisy release metrics and meaningful release signals.</desc>
+  <desc id="desc">A hand-drawn comparison of noisy release metrics and meaningful release signals.</desc>
   <defs>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="4" dy="6" stdDeviation="0.9" flood-color="#111827" flood-opacity="0.22"/>
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="1" seed="21"/>
+      <feDisplacementMap in="SourceGraphic" scale="1"/>
+    </filter>
     <style>
-      .bg { fill: #f8fafc; }
-      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
-      .noise { fill: #fff7ed; stroke: #f97316; }
-      .signal { fill: #ecfdf5; stroke: #10b981; }
-      .title { fill: #0f172a; font: 700 34px Arial, sans-serif; }
-      .h2 { fill: #0f172a; font: 700 26px Arial, sans-serif; }
-      .item { fill: #334155; font: 19px Arial, sans-serif; }
-      .small { fill: #64748b; font: 16px Arial, sans-serif; }
-      .metric { fill: #f1f5f9; stroke: #cbd5e1; }
-      .good { fill: #dcfce7; stroke: #22c55e; }
-      .warn { fill: #fef3c7; stroke: #f59e0b; }
+      .paper { fill: #fffdf7; }
+      .title { fill: #111827; font: 800 36px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .subtitle { fill: #374151; font: 18px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .h2 { fill: #111827; font: 800 30px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .item { fill: #111827; font: 20px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .small { fill: #374151; font: 16px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .tiny { fill: #4b5563; font: 13px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .ink { stroke: #111827; stroke-width: 3.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .thinInk { stroke: #111827; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke: #6b7280; stroke-width: 2; stroke-dasharray: 5 5; fill: none; }
+      .noisePanel { fill: #ffedd5; }
+      .signalPanel { fill: #dcfce7; }
+      .noiseCard { fill: #fed7aa; }
+      .signalCard { fill: #bbf7d0; }
+      .note { fill: #dbeafe; stroke: #111827; stroke-width: 2.5; }
     </style>
   </defs>
-  <rect class="bg" width="1200" height="620" rx="24"/>
-  <text x="60" y="62" class="title">Signal vs. Noise</text>
-  <text x="60" y="94" class="small">Release confidence improves when teams separate dashboard polish from decision-grade evidence.</text>
 
-  <g transform="translate(60 135)">
-    <rect class="panel noise" width="505" height="390" rx="16"/>
-    <text x="32" y="54" class="h2">Noise</text>
-    <text x="32" y="87" class="small">Looks useful, but hides uncertainty.</text>
+  <rect class="paper" width="1280" height="720" rx="28"/>
+  <path class="dash" d="M26 24 H1254 V696 H26 Z" opacity="0.45"/>
+  <text x="62" y="64" class="title">Signal vs. Noise</text>
+  <text x="64" y="96" class="subtitle">A release dashboard can look tidy and still fail to tell the truth.</text>
 
-    <g transform="translate(32 128)">
-      <rect class="metric" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">100% pass rate without context</text>
-    </g>
-    <g transform="translate(32 195)">
-      <rect class="metric" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">Large test count, shallow checks</text>
-    </g>
-    <g transform="translate(32 262)">
-      <rect class="metric" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">Skipped paths counted as ready</text>
-    </g>
-    <g transform="translate(32 329)">
-      <rect class="metric" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">Unknown flags buried in config</text>
-    </g>
+  <g filter="url(#shadow)">
+    <path class="noisePanel" d="M70 138 Q74 120 96 122 L566 120 Q588 122 592 144 L586 548 Q582 570 558 572 L98 570 Q74 568 70 546 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M70 138 Q74 120 96 122 L566 120 Q588 122 592 144 L586 548 Q582 570 558 572 L98 570 Q74 568 70 546 Z"/>
+    <text x="112" y="180" class="h2">Noise</text>
+    <text x="112" y="210" class="small">Looks useful, hides uncertainty.</text>
+
+    <path class="signalPanel" d="M688 138 Q692 120 714 122 L1184 120 Q1206 122 1210 144 L1204 548 Q1200 570 1176 572 L716 570 Q692 568 688 546 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M688 138 Q692 120 714 122 L1184 120 Q1206 122 1210 144 L1204 548 Q1200 570 1176 572 L716 570 Q692 568 688 546 Z"/>
+    <text x="730" y="180" class="h2">Signal</text>
+    <text x="730" y="210" class="small">Evidence a human can explain.</text>
   </g>
 
-  <g transform="translate(635 135)">
-    <rect class="panel signal" width="505" height="390" rx="16"/>
-    <text x="32" y="54" class="h2">Signal</text>
-    <text x="32" y="87" class="small">Evidence that helps humans decide.</text>
+  <g filter="url(#shadow)">
+    <path class="noiseCard" d="M114 250 H546 Q560 252 560 266 V304 Q558 318 542 320 H118 Q104 318 104 304 V266 Q106 252 114 250 Z"/>
+    <path class="thinInk" d="M114 250 H546 Q560 252 560 266 V304 Q558 318 542 320 H118 Q104 318 104 304 V266 Q106 252 114 250 Z"/>
+    <text x="132" y="294" class="item">100% pass rate without context</text>
 
-    <g transform="translate(32 128)">
-      <rect class="good" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">Substantive assertions verified</text>
-    </g>
-    <g transform="translate(32 195)">
-      <rect class="good" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">Scope explicit: tested, skipped, deferred</text>
-    </g>
-    <g transform="translate(32 262)">
-      <rect class="good" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">Risks named with owners</text>
-    </g>
-    <g transform="translate(32 329)">
-      <rect class="good" width="440" height="50" rx="10"/>
-      <text x="24" y="32" class="item">Rollback path understood</text>
-    </g>
+    <path class="noiseCard" d="M114 336 H546 Q560 338 560 352 V390 Q558 404 542 406 H118 Q104 404 104 390 V352 Q106 338 114 336 Z"/>
+    <path class="thinInk" d="M114 336 H546 Q560 338 560 352 V390 Q558 404 542 406 H118 Q104 404 104 390 V352 Q106 338 114 336 Z"/>
+    <text x="132" y="380" class="item">Large count, shallow checks</text>
+
+    <path class="noiseCard" d="M114 422 H546 Q560 424 560 438 V476 Q558 490 542 492 H118 Q104 490 104 476 V438 Q106 424 114 422 Z"/>
+    <path class="thinInk" d="M114 422 H546 Q560 424 560 438 V476 Q558 490 542 492 H118 Q104 490 104 476 V438 Q106 424 114 422 Z"/>
+    <text x="132" y="466" class="item">Skipped paths counted as ready</text>
+
+    <path class="signalCard" d="M732 250 H1164 Q1178 252 1178 266 V304 Q1176 318 1160 320 H736 Q722 318 722 304 V266 Q724 252 732 250 Z"/>
+    <path class="thinInk" d="M732 250 H1164 Q1178 252 1178 266 V304 Q1176 318 1160 320 H736 Q722 318 722 304 V266 Q724 252 732 250 Z"/>
+    <text x="750" y="294" class="item">Substantive assertions verified</text>
+
+    <path class="signalCard" d="M732 336 H1164 Q1178 338 1178 352 V390 Q1176 404 1160 406 H736 Q722 404 722 390 V352 Q724 338 732 336 Z"/>
+    <path class="thinInk" d="M732 336 H1164 Q1178 338 1178 352 V390 Q1176 404 1160 406 H736 Q722 404 722 390 V352 Q724 338 732 336 Z"/>
+    <text x="750" y="380" class="item">Tested, skipped, deferred are separate</text>
+
+    <path class="signalCard" d="M732 422 H1164 Q1178 424 1178 438 V476 Q1176 490 1160 492 H736 Q722 490 722 476 V438 Q724 424 732 422 Z"/>
+    <path class="thinInk" d="M732 422 H1164 Q1178 424 1178 438 V476 Q1176 490 1160 492 H736 Q722 490 722 476 V438 Q724 424 732 422 Z"/>
+    <text x="750" y="466" class="item">Risks named with owners</text>
   </g>
 
-  <g transform="translate(60 555)">
-    <rect class="warn" width="1080" height="44" rx="12"/>
-    <text x="540" y="29" text-anchor="middle" class="item" style="font-size:18px">A green dashboard is a starting point. Release confidence comes from evidence you can explain.</text>
+  <path class="ink" d="M618 332 C640 318 652 318 672 332"/>
+  <path class="ink" d="M618 382 C640 396 652 396 672 382"/>
+  <text x="645" y="364" class="h2" text-anchor="middle">?</text>
+
+  <g filter="url(#shadow)">
+    <rect x="164" y="608" width="952" height="56" class="note" rx="8"/>
+    <text x="640" y="643" class="item" text-anchor="middle">A green dashboard is a starting point. Confidence comes from evidence you can explain.</text>
   </g>
 </svg>
-

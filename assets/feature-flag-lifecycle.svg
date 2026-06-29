@@ -1,75 +1,100 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="520" viewBox="0 0 1320 520" role="img" aria-labelledby="title desc">
   <title id="title">Feature flag lifecycle</title>
-  <desc id="desc">A lifecycle diagram showing a feature flag moving from proposed to scoped, tested, enabled, monitored, and then disabled or graduated.</desc>
+  <desc id="desc">A hand-drawn lifecycle diagram showing a feature flag moving through proposed, scoped, tested, enabled, monitored, and graduated or disabled states.</desc>
   <defs>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="3" dy="5" stdDeviation="0.9" flood-color="#111827" flood-opacity="0.22"/>
+    </filter>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" seed="12"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.1"/>
+    </filter>
     <style>
-      .bg { fill: #f8fafc; }
-      .node { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
-      .active { fill: #ecfdf5; stroke: #10b981; }
-      .warn { fill: #fef3c7; stroke: #f59e0b; }
-      .done { fill: #e0f2fe; stroke: #0284c7; }
-      .title { fill: #0f172a; font: 700 32px Arial, sans-serif; }
-      .label { fill: #0f172a; font: 700 20px Arial, sans-serif; }
-      .small { fill: #475569; font: 16px Arial, sans-serif; }
-      .line { stroke: #64748b; stroke-width: 4; fill: none; stroke-linecap: round; }
-      .arrow { fill: #64748b; }
+      .paper { fill: #fffdf7; }
+      .title { fill: #111827; font: 800 34px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .subtitle { fill: #374151; font: 18px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .label { fill: #111827; font: 800 21px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .small { fill: #374151; font: 16px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .tiny { fill: #4b5563; font: 13px "Comic Sans MS", "Marker Felt", Arial, sans-serif; }
+      .ink { stroke: #111827; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .thinInk { stroke: #111827; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke: #6b7280; stroke-width: 2; stroke-dasharray: 5 5; fill: none; }
+      .arrow { fill: #111827; }
+      .dot { fill: #111827; }
+      .proposed { fill: #67e8f9; }
+      .scoped { fill: #fef08a; }
+      .tested { fill: #f0abfc; }
+      .enabled { fill: #bbf7d0; }
+      .monitored { fill: #e0f2fe; }
+      .graduated { fill: #d9f99d; }
+      .disabled { fill: #fecaca; }
+      .note { fill: #e5e7eb; stroke: #111827; stroke-width: 2.5; }
     </style>
   </defs>
-  <rect class="bg" width="1280" height="420" rx="24"/>
-  <text x="60" y="58" class="title">Feature Flag Lifecycle</text>
-  <text x="60" y="88" class="small">Flags reduce release risk when ownership, test coverage, defaults, and disablement paths are explicit.</text>
 
-  <g transform="translate(52 150)">
-    <rect class="node" width="150" height="95" rx="14"/>
-    <text class="label" x="75" y="39" text-anchor="middle">Proposed</text>
-    <text class="small" x="75" y="66" text-anchor="middle">why it exists</text>
-  </g>
-  <g transform="translate(238 150)">
-    <rect class="node" width="150" height="95" rx="14"/>
-    <text class="label" x="75" y="39" text-anchor="middle">Scoped</text>
-    <text class="small" x="75" y="66" text-anchor="middle">default + owner</text>
-  </g>
-  <g transform="translate(424 150)">
-    <rect class="warn" width="150" height="95" rx="14"/>
-    <text class="label" x="75" y="39" text-anchor="middle">Tested</text>
-    <text class="small" x="75" y="66" text-anchor="middle">on and off</text>
-  </g>
-  <g transform="translate(610 150)">
-    <rect class="active" width="150" height="95" rx="14"/>
-    <text class="label" x="75" y="39" text-anchor="middle">Enabled</text>
-    <text class="small" x="75" y="66" text-anchor="middle">controlled rollout</text>
-  </g>
-  <g transform="translate(796 150)">
-    <rect class="node" width="150" height="95" rx="14"/>
-    <text class="label" x="75" y="39" text-anchor="middle">Monitored</text>
-    <text class="small" x="75" y="66" text-anchor="middle">watch signals</text>
-  </g>
-  <g transform="translate(1070 110)">
-    <rect class="done" width="150" height="80" rx="14"/>
-    <text class="label" x="75" y="34" text-anchor="middle">Graduated</text>
-    <text class="small" x="75" y="59" text-anchor="middle">remove flag</text>
-  </g>
-  <g transform="translate(1070 230)">
-    <rect class="warn" width="150" height="80" rx="14"/>
-    <text class="label" x="75" y="34" text-anchor="middle">Disabled</text>
-    <text class="small" x="75" y="59" text-anchor="middle">risk contained</text>
+  <rect class="paper" width="1320" height="520" rx="28"/>
+  <path class="dash" d="M26 24 H1294 V496 H26 Z" opacity="0.45"/>
+  <text x="62" y="64" class="title">Feature Flag Lifecycle</text>
+  <text x="64" y="96" class="subtitle">Flags are little release levers. Label them, test them, and retire them on purpose.</text>
+
+  <g filter="url(#shadow)">
+    <path class="proposed" d="M70 174 Q75 158 92 160 L208 158 Q226 160 230 176 L226 248 Q222 263 206 265 L92 264 Q74 262 70 248 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M70 174 Q75 158 92 160 L208 158 Q226 160 230 176 L226 248 Q222 263 206 265 L92 264 Q74 262 70 248 Z"/>
+    <text x="150" y="202" class="label" text-anchor="middle">Proposed</text>
+    <text x="150" y="232" class="small" text-anchor="middle">why it exists</text>
+
+    <path class="scoped" d="M278 172 Q282 158 300 160 L416 158 Q432 160 436 176 L434 248 Q430 263 414 265 L300 264 Q282 262 278 248 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M278 172 Q282 158 300 160 L416 158 Q432 160 436 176 L434 248 Q430 263 414 265 L300 264 Q282 262 278 248 Z"/>
+    <text x="357" y="202" class="label" text-anchor="middle">Scoped</text>
+    <text x="357" y="232" class="small" text-anchor="middle">default + owner</text>
+
+    <path class="tested" d="M486 172 Q491 158 508 160 L624 158 Q641 160 644 176 L642 248 Q638 263 622 265 L508 264 Q490 262 486 248 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M486 172 Q491 158 508 160 L624 158 Q641 160 644 176 L642 248 Q638 263 622 265 L508 264 Q490 262 486 248 Z"/>
+    <text x="565" y="202" class="label" text-anchor="middle">Tested</text>
+    <text x="565" y="232" class="small" text-anchor="middle">on and off</text>
+
+    <path class="enabled" d="M694 172 Q699 158 716 160 L832 158 Q849 160 852 176 L850 248 Q846 263 830 265 L716 264 Q698 262 694 248 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M694 172 Q699 158 716 160 L832 158 Q849 160 852 176 L850 248 Q846 263 830 265 L716 264 Q698 262 694 248 Z"/>
+    <text x="773" y="202" class="label" text-anchor="middle">Enabled</text>
+    <text x="773" y="232" class="small" text-anchor="middle">controlled rollout</text>
+
+    <path class="monitored" d="M902 172 Q906 158 924 160 L1040 158 Q1057 160 1060 176 L1058 248 Q1054 263 1038 265 L924 264 Q906 262 902 248 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M902 172 Q906 158 924 160 L1040 158 Q1057 160 1060 176 L1058 248 Q1054 263 1038 265 L924 264 Q906 262 902 248 Z"/>
+    <text x="981" y="202" class="label" text-anchor="middle">Monitored</text>
+    <text x="981" y="232" class="small" text-anchor="middle">watch signals</text>
+
+    <path class="graduated" d="M1138 112 Q1142 98 1158 100 L1260 98 Q1278 100 1280 116 L1276 178 Q1273 193 1258 195 L1158 194 Q1142 192 1138 178 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M1138 112 Q1142 98 1158 100 L1260 98 Q1278 100 1280 116 L1276 178 Q1273 193 1258 195 L1158 194 Q1142 192 1138 178 Z"/>
+    <text x="1209" y="139" class="label" text-anchor="middle">Graduated</text>
+    <text x="1209" y="168" class="small" text-anchor="middle">remove flag</text>
+
+    <path class="disabled" d="M1138 254 Q1142 240 1158 242 L1260 240 Q1278 242 1280 258 L1276 320 Q1273 335 1258 337 L1158 336 Q1142 334 1138 320 Z" filter="url(#wobble)"/>
+    <path class="thinInk" d="M1138 254 Q1142 240 1158 242 L1260 240 Q1278 242 1280 258 L1276 320 Q1273 335 1258 337 L1158 336 Q1142 334 1138 320 Z"/>
+    <text x="1209" y="281" class="label" text-anchor="middle">Disabled</text>
+    <text x="1209" y="310" class="small" text-anchor="middle">risk contained</text>
   </g>
 
-  <path class="line" d="M202 198 H230"/>
-  <polygon class="arrow" points="230,198 218,190 218,206"/>
-  <path class="line" d="M388 198 H416"/>
-  <polygon class="arrow" points="416,198 404,190 404,206"/>
-  <path class="line" d="M574 198 H602"/>
-  <polygon class="arrow" points="602,198 590,190 590,206"/>
-  <path class="line" d="M760 198 H788"/>
-  <polygon class="arrow" points="788,198 776,190 776,206"/>
-  <path class="line" d="M946 198 C988 198 1012 150 1062 150"/>
-  <polygon class="arrow" points="1062,150 1050,142 1050,158"/>
-  <path class="line" d="M946 198 C988 198 1012 270 1062 270"/>
-  <polygon class="arrow" points="1062,270 1050,262 1050,278"/>
+  <path class="ink" d="M230 212 H274"/><polygon class="arrow" points="274,212 260,203 260,221"/>
+  <path class="ink" d="M436 212 H482"/><polygon class="arrow" points="482,212 468,203 468,221"/>
+  <path class="ink" d="M644 212 H690"/><polygon class="arrow" points="690,212 676,203 676,221"/>
+  <path class="ink" d="M852 212 H898"/><polygon class="arrow" points="898,212 884,203 884,221"/>
 
-  <g transform="translate(90 315)">
-    <rect x="0" y="0" width="1100" height="50" rx="12" fill="#e2e8f0"/>
-    <text x="550" y="32" text-anchor="middle" class="small" style="font-size:18px">A feature flag is not done when it ships. It is done when the team knows what to do next.</text>
+  <circle class="dot" cx="230" cy="212" r="7"/>
+  <circle class="dot" cx="436" cy="212" r="7"/>
+  <circle class="dot" cx="644" cy="212" r="7"/>
+  <circle class="dot" cx="852" cy="212" r="7"/>
+  <circle class="dot" cx="1060" cy="212" r="7"/>
+
+  <path class="ink" d="M1060 212 C1098 212 1094 146 1134 146"/>
+  <polygon class="arrow" points="1134,146 1120,137 1121,155"/>
+  <path class="ink" d="M1060 212 C1098 212 1094 288 1134 288"/>
+  <polygon class="arrow" points="1134,288 1120,279 1121,297"/>
+
+  <text x="1088" y="188" class="tiny">watch</text>
+  <text x="1088" y="315" class="tiny">rollback</text>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="370" width="1080" height="66" class="note" rx="8"/>
+    <text x="660" y="410" class="small" style="font-size:20px" text-anchor="middle">A feature flag is not done when it ships. It is done when the team knows what to do next.</text>
   </g>
 </svg>
